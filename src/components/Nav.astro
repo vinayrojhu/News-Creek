@@ -1,0 +1,74 @@
+---
+
+---
+
+<nav>
+  <div class="max-w-5xl mx-auto px-3 py-3 flex flex-col">
+    <div class="flex items-center justify-between h-16">
+      <button class="hamburger">
+        <svg viewBox="0 0 18 15" class="h-6 w-6">
+          <path
+            fill="#000"
+            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"
+          ></path>
+          <path
+            fill="#000"
+            d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"
+          ></path>
+          <path
+            fill="#000"
+            d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"
+          ></path>
+        </svg>
+      </button>
+      <a href="/" class="font-bold text-xl hover:text-hot-pink">Creek</a>
+      <a href="/search" class="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </a>
+    </div>
+
+    <menu class="menu h-0 overflow-hidden duration-150">
+      <ul class="flex flex-col items-center">
+        <a href="#" role="listitem" class="basis-10 py-1 w-full text-center"
+          >Page 1</a
+        >
+        <a
+          href="#"
+          role="listitem"
+          class="basis-10 py-1 border-t w-full text-center">Page 2</a
+        >
+        <a
+          href="#"
+          role="listitem"
+          class="basis-10 py-1 border-t w-full text-center">Page 3</a
+        >
+      </ul>
+    </menu>
+  </div>
+
+  <div class="w-full border-b-2 border-black squiggle"></div>
+</nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerButton = document.querySelector(".hamburger");
+    const menu = document.querySelector(".menu");
+
+    hamburgerButton.addEventListener("click", function () {
+      menu.classList.toggle("h-0");
+      menu.classList.toggle("h-28");
+    });
+  });
+</script>
+<!-- extra menu -->
