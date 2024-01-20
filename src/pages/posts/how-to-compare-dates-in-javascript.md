@@ -1,12 +1,19 @@
 ---
+# tags should belong to this only ["world","sports","health-and-lifestyle","politics","business","trending"]
+
+# SPELLING MISTAKE MAT KRNA PLEASE
+
+# EK SE ZYADA TAG BHI DAAL SKTE HO
+
 title: "How to compare dates in JavaScript"
 pubDate: "2020-01-28"
 slug: "how-to-compare-dates-in-javascript"
 description: "How to compare dates in JavaScript natively using the Date Object, without using any third-party libraries."
 hero: "/images/javascript-logo-banner.jpg"
-tags: ["javascript"]
+tags: ["trending","sports","world"]
 layout: "../../layouts/BlogPostLayout.astro"
 ---
+
 
 Working with dates in JavaScript can be tricky to say the least. Recently I needed to compare two dates with one another to see which was greater than, less than, etc.
 
