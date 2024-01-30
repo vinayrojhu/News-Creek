@@ -1,7 +1,7 @@
 ---
 title: "phli post"
 pubDate: "2024-01-18"
-slug: "phli"
+slug: "phli-post"
 description: "asdfgh"
 hero: "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
 tags: ["game"]
