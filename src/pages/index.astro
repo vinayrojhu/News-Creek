@@ -4,6 +4,7 @@ import Nav from "../components/Nav.astro";
 import HomeHeader from "../components/HomeHeader.astro";
 import Card from "../components/Card.astro";
 import Footer from "../components/Footer/Footer.astro";
+import FlipCard from "../components/FlipCard.astro";
 
 const title = "THE INDIC WIRE";
 const description = "The face of People";
@@ -34,9 +35,13 @@ const sortedPosts = allPosts.sort(
         >
           {
             sortedPosts.map((p) => (
-              <div class="col-span-1">
-                <Card post={p} />
-              </div>
+              <>
+                {p.frontmatter.tags.includes("flip-flop") ? (
+                  <FlipCard post={p} />
+                ) : (
+                  <Card flipFlop={false} post={p} />
+                )}
+              </>
             ))
           }
         </section>

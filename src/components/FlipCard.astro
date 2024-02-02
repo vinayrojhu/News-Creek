@@ -1,0 +1,83 @@
+---
+import dayjs from "dayjs";
+import Card from "./Card.astro";
+
+export interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+---
+
+<div class="flip-card-container max-w-[360px] mx-auto w-full">
+  <div class="card max-w-96">
+    <div id="back" class="cardBack"><Card flipFlop post={post} /></div>
+    <div id="front" class="cardFront">
+      <Card flipFlop={false} post={post} />
+    </div>
+  </div>
+  <button
+    type="button"
+    id="flip-btn"
+    class="bg-red-500 py-2 text-lg text-white rounded-b w-full shadow shadow-pink-100"
+  >
+    Flip Card</button
+  >
+</div>
+
+<style>
+  .card {
+    /* /* height: 300px; */
+    max-width: 360px;
+    height: 450px;
+    /* height: fit-content;
+    aspect-ratio: 5/6; */
+    position: relative;
+    border-radius: 0.25rem;
+  }
+  .flop {
+    background-color: green !important;
+  }
+
+  .cardFront,
+  .cardBack {
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    height: 100%;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    transition: transform 0.5s ease;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .cardBack {
+    transform: perspective(1000px) rotateY(180deg);
+  }
+
+  .cardBack.flipped {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  .cardFront {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+
+  .cardFront.flipped {
+    transform: perspective(1000px) rotateY(-180deg);
+  }
+</style>
+<script>
+  const front = document.querySelectorAll("#front");
+  const back = document.querySelectorAll("#back");
+  const btn = document.querySelectorAll("#flip-btn");
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", () => {
+      btn[i].classList.toggle("flop");
+      front[i].classList.toggle("flipped");
+      back[i].classList.toggle("flipped");
+    });
+  }
+</script>

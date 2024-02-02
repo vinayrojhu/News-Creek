@@ -3,37 +3,54 @@ import dayjs from "dayjs";
 
 export interface Props {
   post: any;
+  flipFlop: boolean;
 }
 
-const { post } = Astro.props;
+const { post, flipFlop } = Astro.props;
+let url, title, desc, hero;
+if (flipFlop) {
+  hero = post.frontmatter.hero2;
+  title = post.frontmatter.title2;
+  desc = post.frontmatter.description2;
+  url = post.frontmatter.url2;
+} else {
+  hero = post.frontmatter.hero;
+  title = post.frontmatter.title;
+  desc = post.frontmatter.description;
+  url = post.url;
+}
 ---
 
-<a
-  href={post.url}
-  class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden"
+<div
+  class="transition-all duration-75 ease-in-out mx-auto flex flex-col hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden max-w-[360px] h-[450px]"
   data-test="article-card"
 >
   <img
     class="squiggle aspect-[3/2]"
-    src={post.frontmatter.hero}
-    alt={post.frontmatter.title}
+    src={hero}
+    alt={title}
     width="360"
     height="192"
   />
-  <div class="py-6 px-8">
+  <div class="pt-4 px-4 flex h-full flex-col justify-between">
     <h2 class="font-bold text-2xl leading-tight">
-      {post.frontmatter.title}
+      {title}
     </h2>
-    <div
-      class="below flex justify-between items-baseline mt-auto relative bottom-0"
-    >
-      <p class="text-xs text-gray-600 mt-4 flex items-center">
+    <div class="desc line-clamp-2 mt-2 text-sm text-gray-600">
+      {desc}
+    </div>
+    <div class="below flex justify-between items-baseline pb-4 mt-6">
+      <p class="text-sm text-gray-600 flex items-center">
         {dayjs(post.frontmatter.pubDate).format("MM-DD-YYYY")}
       </p>
-      <button class="bg-gray-100 px-2 py-1 rounded">read more &rarr;</button>
+      <a href={url} class="hover:-translate-y-1">
+        <button class="bg-pink-50 border-pink-300 px-2 py-1 rounded border"
+          >Read more &rarr;</button
+        >
+      </a>
     </div>
   </div>
-</a>
+</div>
 
 <style>
   img {
